@@ -40,9 +40,22 @@ class Festival
   end
 
   def check_acts(act)
-    @festival.any?(act)
+    @acts.any?(act)
   end
 
+  def total_acts()
+    @acts.count
+  end
+
+  def remove_acts(act)
+    @acts.slice!(act)
+    return @acts
+  end
+
+  def increase_ticket_price(increase)
+    @ticket_price += increase
+    return @ticket_price
+  end
 
 
 
