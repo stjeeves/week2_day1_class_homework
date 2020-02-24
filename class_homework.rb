@@ -35,6 +35,15 @@ class Festival
     @ticket_price = new_ticket_price
   end
 
+  def add_new_acts(new_act)
+    @acts.push(new_act)
+  end
+
+  def check_acts(act)
+    @festival.any?(act)
+  end
+
+
 
 
 end

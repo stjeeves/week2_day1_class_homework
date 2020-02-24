@@ -43,4 +43,14 @@ class TestFestival < MiniTest::Test
     assert_equal(200, @festival.get_ticket_price())
   end
 
+  def test_add_new_acts()
+    @festival.add_new_acts("Bonobo")
+    assert_equal(["Calvin Harris",
+      "Caribou", "Lewis Capaldi", "Bonobo"], @festival.get_acts())
+  end
+
+  def check_acts()
+    assert_equal(true, @festival.check_acts())
+  end
+
 end
