@@ -8,7 +8,7 @@ class TestFestival < MiniTest::Test
 
   def setup()
     @festival = Festival.new("Sziget", "Budapest", 250, ["Calvin Harris",
-      "Caribou", "Lewis Capaldi" ])
+      "Caribou", "Lewis Capaldi"])
   end
 
   def test_get_name()
@@ -58,14 +58,20 @@ class TestFestival < MiniTest::Test
   end
 
   def test_remove_acts()
-    @festival.remove_acts(0)
-    assert_equal(["Caribou", "Lewis Capaldi"], @festival.remove_acts(0))
+    @festival.remove_acts("Calvin Harris")
+    assert_equal(["Caribou", "Lewis Capaldi"], @festival.remove_acts("Calvin Harris"))
 
   end
 
   def test_increase_ticket_price()
     @festival.increase_ticket_price(50)
     assert_equal(300, @festival.increase_ticket_price(50))
+  end
+
+  def test_check_total_acts()
+    @festival.check_total_acts("Little Simz")
+    assert_equal(["Calvin Harris",
+      "Caribou", "Lewis Capaldi", "Little Simz"], @festival.check_total_acts("Little Simz"))
   end
 
 end

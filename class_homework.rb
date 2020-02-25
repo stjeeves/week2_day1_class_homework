@@ -48,13 +48,19 @@ class Festival
   end
 
   def remove_acts(act)
-    @acts.slice!(act)
+    @acts.delete(act)
     return @acts
   end
 
   def increase_ticket_price(increase)
     @ticket_price += increase
     return @ticket_price
+  end
+
+  def check_total_acts(new_act)
+    if @acts.count >= 3
+      @acts.push(new_act)
+    end
   end
 
 
